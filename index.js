@@ -12,10 +12,4 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/api/notes", notes);
 
-app.post("/fafa", (req, res) => {
-  res.send(req.body);
-});
-
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
-
-// https://www.maketecheasier.com/use-google-roboto-font-everywhere/
