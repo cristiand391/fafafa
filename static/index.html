@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="./components/noteCard.js"></script>
+    <title>Notes</title>
+  </head>
+  <body>
+    <template id="note-card">
+      <style>
+        article {
+          background-color: #ffffff;
+          border-color: #dfdfdf;
+          border-style: solid;
+          border-width: 0.9px;
+          border-radius: 0.5em;
+          font-size: 1.6em;
+          color: black;
+          margin: 10px;
+          padding-top: 30px;
+          padding-bottom: 30px;
+          padding-left: 20px;
+          min-width: 13em;
+          min-height: 3em;
+        }
+
+        article #title {
+          margin-top: 0;
+        }
+
+        #title {
+          font-weight: bold;
+        }
+      </style>
+      <article>
+        <p id="title"><slot name="title"></slot></p>
+        <p id="note"><slot name="note"></slot></p>
+        <button id="edit">Edit</button>
+        <button id="delete">Delete</button>
+      </article>
+    </template>
+
+    <form action="/api/notes" method="POST">
+      <input type="text" name="title" placeholder="Title" id="title" required />
+      <input type="text" name="note" placeholder="Note" id="note" />
+      <button style="display: none;"></button>
+    </form>
+
+    <div class="notes-container"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
